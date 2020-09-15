@@ -39,7 +39,8 @@ def circle(start, end):
     goto(start.x, start.y)
     down()
     
-    dot((end.x-start.x)*2)
+    dot((end.x-start.x)*2) #dot es lo mismo que un círculo pero ya está relleno
+    #La distancia que recorre del start al end es el radio, por lo tanto lo multiplicamos por dos para que se convierta en el diametro
     
     
 
@@ -50,6 +51,8 @@ def rectangle(start, end):
     down()
     begin_fill()
 
+#El procedimiento es similar al cuadrado pero cambia dos de sus lados a medidas más pequeñas
+#Quitamos el for porque ya no recorrerá la misma distancia
     forward(end.x - start.x)
     left(90)
     forward((end.x - start.x)/2)
@@ -68,12 +71,12 @@ def triangle(start, end):
     down()
     begin_fill()
 
+#Utilizamos el mismo procedimiento del cuadrado, pero cambiamos los ángulos de giro para poder formar un triángulo.
     forward(end.x - start.x)
     left(120)
     forward(end.x - start.x)
     left(120)
     forward(end.x - start.x)
-
 
     end_fill()
 
@@ -103,7 +106,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-onkey(lambda: color('pink'), 'P')
+onkey(lambda: color('pink'), 'P') #Se agregó el color rosa
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
